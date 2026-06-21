@@ -1,0 +1,184 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>students data profile</h1>
+   <% allstudent.forEach((element)=>{ %>
+      <h1> <%= element.name  %> </h1>
+      <h1> <%= element.age  %> </h1>
+      <h1> <%= element.course  %> </h1>
+
+<hr>
+   <% }) %>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Data</title>
+
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    padding:40px 20px;
+}
+
+.heading{
+    text-align:center;
+    color:white;
+    font-size:42px;
+    margin-bottom:40px;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:all 0.3s ease;
+    border-left:6px solid #667eea;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.card p{
+    margin:12px 0;
+    font-size:18px;
+    color:#444;
+}
+
+.card strong{
+    color:#222;
+}
+
+.student-name{
+    font-size:24px;
+    font-weight:bold;
+    color:#667eea;
+    margin-bottom:15px;
+}
+
+.actions{
+    margin-top:20px;
+    display:flex;
+    gap:15px;
+}
+
+/* Common Button Style */
+
+.edit-btn,
+.delete-btn{
+    text-decoration:none;
+    color:white;
+    padding:12px 22px;
+    border-radius:50px;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.5px;
+    transition:all 0.3s ease;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Edit Button */
+
+.edit-btn{
+    background:linear-gradient(135deg,#36d1dc,#5b86e5);
+}
+
+.edit-btn:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 8px 20px rgba(91,134,229,0.4);
+}
+
+/* Delete Button */
+
+.delete-btn{
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+}
+
+.delete-btn:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 8px 20px rgba(255,75,43,0.4);
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .heading{
+        font-size:32px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .edit-btn,
+    .delete-btn{
+        width:100%;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <h1 class="heading">Students Data Profile</h1>
+
+    <div class="container">
+
+        <% allstudent.forEach((element)=>{ %>
+
+            <div class="card">
+                <p><strong>Id:</strong> <%= element._id %></p>
+                <p style="color: rgb(113, 220, 7);"><strong>Name:</strong> <%= element.name %></p>
+                
+                <p><strong>Age:</strong> <%= element.age %></p>
+                <p><strong>Email:</strong> <%= element.email %></p>
+
+                <a href="/delete/<%=element._id%>">Delete</a>
+                <a href="/edit/<%= element._id %>">Edit</a>
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="/update/<%=data.id%>" method="POST">
+    
+    <input type="text" name="name" placeholder="Enter Name" value="<%=data.name%>">
+    
+    <input type="number" name="age" placeholder="Enter Age" value="<%=data.age%>">
+    
+    <input type="email" name="email" placeholder="Enter Email" value="<%=data.email%>">
+    
+    <button type="submit">edit Student</button>
+
+</form>
+    
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            padding:20px;
+        }
+
+        .container{
+            width:100%;
+            max-width:500px;
+        }
+
+        .form-card{
+            background:white;
+            padding:35px;
+            border-radius:20px;
+            box-shadow:0 15px 35px rgba(0,0,0,0.2);
+            animation:fadeIn 0.5s ease;
+        }
+
+        .form-card h1{
+            text-align:center;
+            color:#333;
+            margin-bottom:25px;
+            font-size:32px;
+        }
+
+        .input-group{
+            margin-bottom:20px;
+        }
+
+        .input-group label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:600;
+            color:#555;
+        }
+
+        .input-group input{
+            width:100%;
+            padding:14px;
+            border:2px solid #ddd;
+            border-radius:10px;
+            font-size:16px;
+            transition:0.3s;
+            outline:none;
+        }
+
+        .input-group input:focus{
+            border-color:#667eea;
+            box-shadow:0 0 12px rgba(102,126,234,0.3);
+        }
+
+        .btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            background:linear-gradient(135deg,#36d1dc,#5b86e5);
+            color:white;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            transform:translateY(-3px);
+            box-shadow:0 10px 20px rgba(91,134,229,0.4);
+        }
+
+        .back-btn{
+            display:block;
+            text-align:center;
+            margin-top:15px;
+            text-decoration:none;
+            color:#667eea;
+            font-weight:600;
+        }
+
+        .back-btn:hover{
+            text-decoration:underline;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="form-card">
+
+            <h1>✏️ Edit Student</h1>
+
+            <form action="/update/<%= data._id %>" method="POST">
+
+                <div class="input-group">
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value="<%= data.name %>"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Age</label>
+                    <input
+                        type="number"
+                        name="age"
+                        value="<%= data.age %>"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value="<%= data.email %>"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn">
+                    Update Student
+                </button>
+
+            </form>
+
+            <a href="/getdata" class="back-btn">
+                ← Back to Students List
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
